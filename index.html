@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Idul Fitri 1446 H</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+      overflow: hidden;
+    }
+
+    .splash {
+      position: fixed;
+      z-index: 999;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      width: 100%;
+      height: 100%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .splash h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ffdd57;
+    }
+
+    .splash button {
+      background-color: #ffdd57;
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .splash button:hover {
+      background-color: #ffd000;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: float 10s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      display: none;
+    }
+
+    .card h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      color: #ffdd57;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+      z-index: 2;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .flower {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      animation: floatUp 8s linear forwards;
+      opacity: 0.9;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="splash" id="splash">
+    <h1>Selamat Hari Raya Idul Fitri 1446 H</h1>
+    <button onclick="startExperience()">Masuk</button>
+  </div>
+
+  <div class="particles" id="particles"></div>
+
+  <div class="card" id="mainCard">
+    <h1>Selamat Idul Fitri</h1>
+    <h2>1446 H / 2025 M</h2>
+    <p>✨ Taqabbalallahu minna wa minkum ✨<br>
+    Mohon Maaf Lahir & Batin<br>
+    Untuk Nazwa dan keluarga besar,<br>
+    semoga Idul Fitri ini membawa kebahagiaan, kedamaian, dan keberkahan yang tak bertepi.</p>
+  </div>
+
+  <footer id="footer">
+    Dibuat dengan ❤️ spesial untuk Nazwa dan keluarga
+  </footer>
+
+  <audio id="audio" loop>
+    <source src="idulfitri.mp3" type="audio/mp3">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <script>
+    function startExperience() {
+      document.getElementById('splash').style.display = 'none';
+      document.getElementById('mainCard').style.display = 'block';
+      document.getElementById('footer').style.display = 'block';
+      document.getElementById('audio').play().catch(err => {
+        alert("Browser memblokir autoplay. Silakan aktifkan manual.");
+      });
+    }
+
+    const particleContainer = document.getElementById('particles');
+    const colors = ['#ffffff40', '#ffdd5740', '#a29bfe40'];
+
+    for (let i = 0; i < 100; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${5 + Math.random() * 10}s`;
+      particle.style.width = particle.style.height = `${5 + Math.random() * 10}px`;
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      particleContainer.appendChild(particle);
+    }
+
+    function createFlower() {
+      const flower = document.createElement('img');
+      flower.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50%" x="50%" font-size="80" dominant-baseline="middle" text-anchor="middle">🌸</text></svg>';
+      flower.className = 'flower';
+
+      const size = Math.random() * 30 + 20;
+      flower.style.width = size + 'px';
+      flower.style.height = size + 'px';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.bottom = '-60px';
+      flower.style.animationDuration = 6 + Math.random() * 5 + 's';
+      flower.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 10000);
+    }
+
+    setInterval(createFlower, 500);
+  </script>
+</body>
+</html>
